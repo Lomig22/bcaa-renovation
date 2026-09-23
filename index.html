@@ -335,9 +335,22 @@
       align-items: flex-end;
       overflow: hidden;
     }
+    .hero__photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero__visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(26,39,68,.35) 0%, rgba(26,39,68,.55) 55%, rgba(26,39,68,.92) 100%);
+    }
+    .hero__visual > *:not(.hero__photo) { z-index: 1; }
     .hero__visual::before {
       content: '';
       position: absolute; inset: 0;
+      z-index: 1;
+      opacity: .6;
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 16 L24 20 L20 24 L16 20 Z' fill='%23F8F8F6' fill-opacity='0.06'/%3E%3C/svg%3E");
       background-size: 40px 40px;
     }
@@ -347,7 +360,10 @@
       transform: translate(-50%, -60%);
       width: 180px; height: 180px;
       border-radius: 50%;
-      border: 2px solid rgba(248,248,246,.25);
+      border: 2px solid rgba(248,248,246,.55);
+      background: rgba(26,39,68,.55);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
       display: grid;
       place-items: center;
       text-align: center;
@@ -915,6 +931,7 @@
       .hero__stats { grid-template-columns: repeat(3, 1fr); }
       .hero__stat { padding: 14px 10px; }
       .hero__stat b { font-size: 24px; }
+      .hero__visual { aspect-ratio: 1 / 1; max-height: none; }
       .hero__visual-logo { width: 140px; height: 140px; }
       .hero__visual-logo b { font-size: 32px; }
       .metiers__grid { grid-template-columns: 1fr; }
@@ -1003,6 +1020,7 @@
         </div>
 
         <div class="hero__visual reveal" style="--i:2" aria-hidden="true">
+          <img class="hero__photo" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=75&w=900" srcset="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=75&w=600 600w, https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=75&w=900 900w, https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=75&w=1400 1400w" sizes="(max-width: 1024px) 100vw, 42vw" alt="" fetchpriority="high" decoding="async">
           <div class="hero__visual-logo">
             <div>
               <b>BCAA</b>
