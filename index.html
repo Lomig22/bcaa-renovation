@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCAA Rénovation — Tous corps d'état · Électricité, Plomberie, Climatisation, Peinture, Parquet</title>
+  <meta name="description" content="BCAA Rénovation : un seul artisan pour tous vos travaux. Électricité, plomberie, climatisation, peinture, parquet, carrelage et aménagement. Devis gratuit.">
+  <meta name="theme-color" content="#1A2744">
+  <meta property="og:title" content="BCAA Rénovation — Un seul artisan. Tous vos travaux.">
+  <meta property="og:description" content="Rénovation tous corps d'état : électricité, plomberie, climatisation, peinture, parquet, aménagement.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231A2744'/%3E%3Ctext x='32' y='40' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='22' fill='%23F8F8F6' text-anchor='middle'%3EBCAA%3C/text%3E%3C/svg%3E">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=Rubik:wght@400;500;600&display=swap');
+
+    /* ==========================================================
+       TOKENS
+       ========================================================== */
+    :root {
+      --blanc:   #F8F8F6;
+      --marine:  #1A2744;
+      --ardoise: #2E3A4E;
+      --ciment:  #EEF0F3;
+      --acier:   #8A96A8;
+      --or:      #C4923A;
+
+      --font-display: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif;
+      --font-body: 'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+      --bandeau-h: 36px;
+      --header-h: 76px;
+      --container: 1200px;
+      --gutter: 24px;
+      --radius: 0;
+
+      --ease: cubic-bezier(.22,.61,.36,1);
+      --reveal-duration: .45s;
+      --reveal-stagger: .07s;
+
+      /* Motif losanges BTP : tuile 40×40, losange central 8×8 en diagonale, marine 0.04 */
+      --motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 16 L24 20 L20 24 L16 20 Z' fill='%231A2744' fill-opacity='0.04'/%3E%3C/svg%3E");
+      --motif-hero: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 16 L24 20 L20 24 L16 20 Z' fill='%231A2744' fill-opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* ==========================================================
+       RESET
+       ========================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html:focus-within { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ardoise);
+      background: var(--blanc);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      padding-top: calc(var(--bandeau-h) + var(--header-h));
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    ul { list-style: none; }
+    :focus-visible { outline: 2px solid var(--or); outline-offset: 3px; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    section[id] { scroll-margin-top: calc(var(--bandeau-h) + var(--header-h)); }
+
+    /* ==========================================================
+       TYPOGRAPHIE
+       ========================================================== */
+    h1, h2, h3, .display {
+      font-family: var(--font-display);
+      color: var(--marine);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    h1 { font-weight: 800; font-size: clamp(2.6rem, 6.5vw, 5.2rem); }
+    h2 { font-weight: 700; font-size: clamp(2rem, 4.2vw, 3.2rem); letter-spacing: -0.015em; }
+    h3 { font-weight: 700; font-size: 1.35rem; }
+    p { max-width: 62ch; }
+
+    .label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--marine);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--or);
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--or);
+    }
+    .section-head { max-width: 720px; margin-bottom: 48px; }
+    .section-head h2 { margin-top: 14px; margin-bottom: 16px; }
+    .section-head .sub { color: var(--acier); font-size: 1.05rem; }
+
+    /* ==========================================================
+       BOUTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 28px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .2s var(--ease), box-shadow .25s var(--ease);
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .btn--marine { background: var(--marine); color: var(--blanc); border-color: var(--marine); }
+    .btn--marine:hover { background: var(--ardoise); border-color: var(--ardoise); box-shadow: 0 10px 24px -10px rgba(26,39,68,.55); }
+    .btn--outline { background: transparent; color: var(--marine); border-color: var(--marine); }
+    .btn--outline:hover { background: var(--marine); color: var(--blanc); }
+    .btn--outline-light { background: transparent; color: var(--blanc); border-color: rgba(248,248,246,.5); }
+    .btn--outline-light:hover { background: var(--blanc); color: var(--marine); border-color: var(--blanc); }
+    .btn--or { background: var(--or); color: var(--blanc); border-color: var(--or); }
+    .btn--or:hover { background: var(--marine); border-color: var(--marine); box-shadow: 0 10px 24px -10px rgba(0,0,0,.5); }
+    .btn--sm { min-height: 44px; padding: 0 20px; font-size: 14px; }
+
+    /* ==========================================================
+       0. BANDEAU
+       ========================================================== */
+    .bandeau {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--bandeau-h);
+      z-index: 1001;
+      background: var(--marine);
+      color: var(--blanc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-inline: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .bandeau a { color: inherit; border-bottom: 1px solid rgba(248,248,246,.35); transition: border-color .2s; }
+    .bandeau a:hover { border-color: var(--or); }
+    .bandeau .sep { margin-inline: 10px; opacity: .55; }
+    .bandeau .hide-xs { display: inline; }
+
+    /* ==========================================================
+       1. HEADER
+       ========================================================== */
+    .header {
+      position: fixed;
+      top: var(--bandeau-h);
+      left: 0; right: 0;
+      height: var(--header-h);
+      z-index: 1000;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background-color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease), backdrop-filter .35s var(--ease);
+    }
+    .header.is-scrolled {
+      background: rgba(248,248,246,.96);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(26,39,68,.08);
+      box-shadow: 0 6px 24px -14px rgba(26,39,68,.35);
+    }
+    .header__inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand__mark {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--marine);
+      color: var(--blanc);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .brand__text { display: flex; flex-direction: column; line-height: 1; }
+    .brand__name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+    .brand__name b { font-weight: 800; color: var(--marine); }
+    .brand__name span { font-weight: 600; color: var(--ardoise); }
+    .brand__tag {
+      margin-top: 4px;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--acier);
+    }
+    .nav { display: flex; align-items: center; gap: 36px; }
+    .nav a {
+      position: relative;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--ardoise);
+      padding-block: 6px;
+      transition: color .2s;
+    }
+    .nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 100%; height: 2px;
+      background: var(--marine);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s var(--ease);
+    }
+    .nav a:hover, .nav a.is-active { color: var(--marine); }
+    .nav a:hover::after, .nav a.is-active::after { transform: scaleX(1); }
+    .header__cta { display: inline-flex; }
+    .nav .btn { display: none; }
+
+    .burger {
+      display: none;
+      width: 44px; height: 44px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    .burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--marine);
+      transition: transform .3s var(--ease), opacity .2s;
+    }
+    .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ==========================================================
+       2. HERO
+       ========================================================== */
+    .hero {
+      position: relative;
+      background: var(--blanc) var(--motif-hero);
+      background-size: 40px 40px;
+      padding: 72px 0 0;
+      overflow: hidden;
+    }
+    .hero::after {
+      /* liseré or diagonal discret en bas à droite */
+      content: '';
+      position: absolute;
+      right: -120px; top: 40px;
+      width: 420px; height: 420px;
+      border: 1px solid rgba(26,39,68,.08);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .hero h1 { margin-top: 20px; }
+    .hero h1 .line { display: block; }
+    .hero h1 .line--or {
+      color: var(--or);
+      position: relative;
+      display: inline-block;
+    }
+    .hero h1 .line--or::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0.02em;
+      height: 3px;
+      background: var(--or);
+    }
+    .hero__sub {
+      margin-top: 24px;
+      max-width: 500px;
+      color: var(--acier);
+      font-size: 1.1rem;
+    }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+
+    .hero__visual {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      max-height: 560px;
+      background: linear-gradient(160deg, var(--marine) 0%, var(--ardoise) 100%);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero__visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 16 L24 20 L20 24 L16 20 Z' fill='%23F8F8F6' fill-opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 40px 40px;
+    }
+    .hero__visual-logo {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -60%);
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      border: 2px solid rgba(248,248,246,.25);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--blanc);
+      font-family: var(--font-display);
+      line-height: 1;
+    }
+    .hero__visual-logo b { display: block; font-weight: 800; font-size: 40px; letter-spacing: 0.02em; }
+    .hero__visual-logo span { display: block; margin-top: 6px; font-weight: 600; font-size: 13px; letter-spacing: 0.22em; opacity: .85; }
+    .hero__stats {
+      position: relative;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: rgba(248,248,246,.06);
+      border-top: 1px solid rgba(248,248,246,.14);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+    .hero__stat {
+      padding: 18px 16px;
+      color: var(--blanc);
+      border-right: 1px solid rgba(248,248,246,.12);
+    }
+    .hero__stat:last-child { border-right: 0; }
+    .hero__stat b {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 30px;
+      color: var(--or);
+      line-height: 1;
+    }
+    .hero__stat span {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: .75;
+    }
+
+    .reassurance {
+      margin-top: 72px;
+      background: var(--ciment);
+      border-top: 1px solid rgba(26,39,68,.06);
+      border-bottom: 1px solid rgba(26,39,68,.06);
+    }
+    .reassurance ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 0;
+      padding: 16px 0;
+    }
+    .reassurance li {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--marine);
+      padding: 4px 18px;
+      position: relative;
+      white-space: nowrap;
+    }
+    .reassurance li + li::before {
+      content: '·';
+      position: absolute;
+      left: -3px;
+      color: var(--acier);
+    }
+
+    /* ==========================================================
+       SECTIONS GÉNÉRIQUES
+       ========================================================== */
+    .section { padding: 104px 0; }
+    .section--ciment {
+      background: var(--ciment) var(--motif);
+      background-size: 40px 40px;
+    }
+    .section--marine { background: var(--marine); color: var(--blanc); }
+    .section--marine h2, .section--ardoise h2 { color: var(--blanc); }
+    .section--marine .sub { color: rgba(248,248,246,.7); }
+    .section--ardoise { background: var(--ardoise); color: var(--blanc); }
+    .section--ardoise .sub { color: rgba(248,248,246,.7); }
+
+    /* ==========================================================
+       3. MÉTIERS
+       ========================================================== */
+    .metiers__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .metier {
+      background: var(--blanc);
+      border-left: 4px solid var(--marine);
+      border-radius: var(--radius);
+      padding: 28px 26px 30px;
+      box-shadow: 0 2px 10px -4px rgba(26,39,68,.12), 0 1px 2px rgba(26,39,68,.04);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 100%;
+    }
+    .metier:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px -18px rgba(26,39,68,.35), 0 2px 6px rgba(26,39,68,.06);
+      border-left-color: var(--or);
+    }
+    .metier__icon {
+      width: 48px; height: 48px;
+      display: grid;
+      place-items: center;
+      background: var(--ciment);
+      font-size: 24px;
+      line-height: 1;
+    }
+    .metier__num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--acier);
+    }
+    .metier h3 { font-size: 1.3rem; }
+    .metier p { color: var(--acier); font-size: 15px; line-height: 1.6; }
+
+    /* ==========================================================
+       4. AVANT / APRÈS
+       ========================================================== */
+    .ba { text-align: center; }
+    .ba .section-head { margin-inline: auto; text-align: center; }
+    .ba .section-head .sub { margin-inline: auto; }
+    .ba .section-head .sub a { color: var(--or); font-weight: 500; border-bottom: 1px solid currentColor; }
+    .ba__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid rgba(248,248,246,.12);
+    }
+    .ba__panel {
+      position: relative;
+      min-height: 440px;
+      overflow: hidden;
+    }
+    .ba__panel--avant { background: var(--ardoise); }
+    .ba__panel--apres { background: rgba(248,248,246,.10); }
+    .ba__label {
+      position: absolute;
+      top: 20px; left: 20px;
+      z-index: 2;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      padding: 8px 14px;
+      background: var(--marine);
+      color: var(--blanc);
+      border: 1px solid rgba(248,248,246,.2);
+    }
+    .ba__panel--apres .ba__label { color: var(--or); border-color: var(--or); }
+    .ba__img {
+      position: absolute; inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(248,248,246,.35);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 500;
+    }
+    .ba__img::before {
+      /* placeholder textural : rayures chantier */
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(135deg, rgba(248,248,246,.03) 0 12px, transparent 12px 24px);
+    }
+    .ba__img span { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .ba__img svg { width: 42px; height: 42px; stroke: currentColor; fill: none; stroke-width: 1.4; opacity: .8; }
+    .ba__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,39,68,.85) 0%, rgba(26,39,68,.15) 45%, transparent 100%);
+      pointer-events: none;
+    }
+    .ba__caption {
+      position: absolute;
+      left: 24px; right: 24px; bottom: 22px;
+      z-index: 2;
+      text-align: left;
+      color: var(--blanc);
+    }
+    .ba__caption b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; }
+    .ba__caption span { display: block; font-size: 13px; opacity: .7; margin-top: 4px; }
+    .ba__divider {
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 2px;
+      background: var(--or);
+      transform: translateX(-50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .ba__divider::before {
+      content: '⇄';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--or);
+      color: var(--marine);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px -6px rgba(0,0,0,.5);
+    }
+    .ba__wrap { position: relative; }
+    .ba__cta { margin-top: 40px; }
+
+    /* ==========================================================
+       5. GALERIE
+       ========================================================== */
+    .gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 4px;
+    }
+    .gallery .item {
+      position: relative;
+      background: var(--ciment);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      cursor: default;
+    }
+    .gallery .item:first-child { grid-row: 1 / 3; }
+    .gallery .item::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--motif);
+      background-size: 40px 40px;
+      opacity: 1;
+      transition: opacity .3s;
+    }
+    .gallery .item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,39,68,.0) 0%, transparent 60%);
+      transition: background .35s var(--ease);
+    }
+    .gallery .item:hover::after { background: linear-gradient(to top, rgba(26,39,68,.12) 0%, transparent 60%); }
+    .gallery .item__tag {
+      position: relative;
+      z-index: 1;
+      margin: 16px;
+      padding: 8px 12px;
+      background: var(--blanc);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--acier);
+      border-left: 3px solid var(--marine);
+      transition: color .25s, border-color .25s;
+    }
+    .gallery .item:hover .item__tag { color: var(--marine); border-left-color: var(--or); }
+    .gallery .item__ico {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px; height: 40px;
+      stroke: var(--acier);
+      fill: none;
+      stroke-width: 1.4;
+      opacity: .45;
+    }
+    .gallery__note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--acier);
+    }
+    .gallery__note a { color: var(--marine); font-weight: 500; border-bottom: 1px solid var(--or); }
+
+    /* ==========================================================
+       6. POURQUOI
+       ========================================================== */
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .why {
+      background: var(--blanc);
+      padding: 36px 30px;
+      border-top: 4px solid var(--marine);
+      box-shadow: 0 2px 10px -4px rgba(26,39,68,.12);
+      transition: transform .3s var(--ease), border-color .3s;
+    }
+    .why:hover { transform: translateY(-4px); border-top-color: var(--or); }
+    .why__icon {
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .why h3 { margin-bottom: 10px; }
+    .why p { color: var(--acier); font-size: 15px; }
+
+    /* ==========================================================
+       7. CONTACT
+       ========================================================== */
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact-card {
+      background: var(--marine);
+      padding: 40px 36px;
+      border-left: 4px solid var(--or);
+      position: sticky;
+      top: calc(var(--bandeau-h) + var(--header-h) + 24px);
+    }
+    .contact-card h3 { color: var(--blanc); font-size: 1.6rem; margin-bottom: 8px; }
+    .contact-card > p { color: rgba(248,248,246,.65); font-size: 15px; margin-bottom: 28px; }
+    .contact-card ul { display: flex; flex-direction: column; gap: 4px; }
+    .contact-card li a, .contact-card li .row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px solid rgba(248,248,246,.12);
+      color: var(--blanc);
+      transition: color .2s;
+    }
+    .contact-card li a:hover { color: var(--or); }
+    .contact-card .ico { font-size: 20px; line-height: 1.3; flex-shrink: 0; }
+    .contact-card .k {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(248,248,246,.55);
+      margin-bottom: 2px;
+    }
+    .contact-card .v { font-weight: 500; word-break: break-word; }
+    .contact-card .hours {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(248,248,246,.12);
+      font-size: 13px;
+      color: rgba(248,248,246,.6);
+    }
+
+    .form {
+      background: var(--blanc);
+      padding: 40px 36px;
+      box-shadow: 0 20px 50px -30px rgba(0,0,0,.5);
+    }
+    .form__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .form__row--single { grid-template-columns: 1fr; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--marine);
+    }
+    .field label .req { color: var(--or); }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1.5px solid #D9DEE6;
+      border-radius: var(--radius);
+      color: var(--ardoise);
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .field textarea { min-height: 140px; resize: vertical; }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231A2744' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: #B4BCC8; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--marine);
+      box-shadow: 0 0 0 3px rgba(26,39,68,.12);
+    }
+    .field input:user-invalid, .field select:user-invalid, .field textarea:user-invalid {
+      border-color: #C0392B;
+    }
+    .form__footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .form__legal { font-size: 12px; color: var(--acier); max-width: 320px; }
+    .form__status {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-left: 4px solid var(--or);
+      background: var(--ciment);
+      color: var(--marine);
+    }
+    .form__status.is-visible { display: block; }
+    .form__status.is-error { border-left-color: #C0392B; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* ==========================================================
+       8. FOOTER
+       ========================================================== */
+    .footer {
+      background: var(--marine);
+      color: var(--blanc);
+      padding: 56px 0 28px;
+      border-top: 4px solid var(--or);
+    }
+    .footer__top {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(248,248,246,.12);
+    }
+    .footer__brand .brand__name b { color: var(--blanc); }
+    .footer__brand .brand__name span { color: rgba(248,248,246,.7); }
+    .footer__brand .brand__mark { background: var(--blanc); color: var(--marine); }
+    .footer__brand p { margin-top: 16px; font-size: 14px; color: rgba(248,248,246,.65); max-width: 380px; }
+    .footer h4 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--or);
+      margin-bottom: 16px;
+    }
+    .footer ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer li a, .footer li { font-size: 14px; color: rgba(248,248,246,.75); transition: color .2s; }
+    .footer li a:hover { color: var(--blanc); }
+    .footer__bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 24px;
+      font-size: 13px;
+      color: rgba(248,248,246,.55);
+    }
+    .footer__bottom a { color: rgba(248,248,246,.75); border-bottom: 1px solid rgba(248,248,246,.25); transition: color .2s, border-color .2s; }
+    .footer__bottom a:hover { color: var(--blanc); border-color: var(--or); }
+
+    /* ==========================================================
+       SCROLL REVEAL
+       ========================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity var(--reveal-duration) ease-out, transform var(--reveal-duration) ease-out;
+      transition-delay: calc(var(--i, 0) * var(--reveal-stagger));
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* ==========================================================
+       BACK TO TOP
+       ========================================================== */
+    .to-top {
+      position: fixed;
+      right: 20px; bottom: 20px;
+      z-index: 900;
+      width: 48px; height: 48px;
+      background: var(--marine);
+      color: var(--blanc);
+      border: 1px solid rgba(248,248,246,.15);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity .3s, transform .3s, background-color .2s;
+    }
+    .to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+    .to-top:hover { background: var(--or); }
+    .to-top svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+
+    /* ==========================================================
+       RESPONSIVE
+       ========================================================== */
+    @media (max-width: 1280px) {
+      :root { --container: 1120px; }
+    }
+
+    @media (max-width: 1024px) {
+      .hero__grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero__visual { aspect-ratio: 16 / 10; max-height: 420px; }
+      .metiers__grid { grid-template-columns: repeat(2, 1fr); }
+      .contact__grid { grid-template-columns: 1fr; gap: 28px; }
+      .contact-card { position: static; }
+      .footer__top { grid-template-columns: 1fr 1fr; }
+      .nav { gap: 24px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --header-h: 68px; }
+      .section { padding: 80px 0; }
+      .hero { padding-top: 48px; }
+      .reassurance { margin-top: 48px; }
+      .reassurance ul { justify-content: flex-start; padding: 12px 0; }
+      .nav {
+        position: fixed;
+        top: calc(var(--bandeau-h) + var(--header-h));
+        left: 0; right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(248,248,246,.98);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(26,39,68,.1);
+        box-shadow: 0 20px 40px -20px rgba(26,39,68,.35);
+        padding: 8px var(--gutter) 20px;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s;
+      }
+      .nav.is-open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+      .nav a {
+        padding: 16px 0;
+        font-size: 17px;
+        border-bottom: 1px solid rgba(26,39,68,.08);
+      }
+      .nav a::after { display: none; }
+      .nav .btn { display: inline-flex; margin-top: 16px; border-bottom: 0; justify-content: center; }
+      .header__cta { display: none; }
+      .burger { display: flex; }
+      .why__grid { grid-template-columns: 1fr; }
+      .ba__grid { grid-template-columns: 1fr; }
+      .ba__panel { min-height: 300px; }
+      .ba__divider { top: 50%; bottom: auto; left: 0; right: 0; width: auto; height: 2px; transform: translateY(-50%); }
+      .ba__divider::before { content: '⇅'; }
+      .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px 220px; }
+      .gallery .item:first-child { grid-row: 1 / 2; grid-column: 1 / 3; }
+      .form { padding: 28px 22px; }
+      .footer__top { grid-template-columns: 1fr; gap: 32px; }
+      .bandeau .hide-xs { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      :root { --gutter: 16px; }
+      body { font-size: 15px; }
+      .bandeau { font-size: 10px; letter-spacing: 0.04em; }
+      .bandeau .hide-sm { display: none; }
+      .brand__tag { display: none; }
+      .brand__name { font-size: 20px; }
+      .hero__ctas .btn { width: 100%; }
+      .hero__stats { grid-template-columns: repeat(3, 1fr); }
+      .hero__stat { padding: 14px 10px; }
+      .hero__stat b { font-size: 24px; }
+      .hero__visual-logo { width: 140px; height: 140px; }
+      .hero__visual-logo b { font-size: 32px; }
+      .metiers__grid { grid-template-columns: 1fr; }
+      .form__row { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; grid-template-rows: repeat(5, 200px); }
+      .gallery .item:first-child { grid-column: auto; }
+      .form__footer .btn { width: 100%; }
+      .section-head { margin-bottom: 36px; }
+      .contact-card { padding: 30px 22px; }
+      .to-top { right: 14px; bottom: 14px; }
+    }
+
+    /* ==========================================================
+       REDUCED MOTION
+       ========================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 0. BANDEAU -->
+  <div class="bandeau" role="note">
+    <span class="hide-sm">BCAA Rénovation</span>
+    <span class="sep hide-sm">·</span>
+    <span class="hide-xs">Tous corps d'état</span>
+    <span class="sep hide-xs">·</span>
+    <a href="mailto:bcaarenovation@gmail.com">✉️ bcaarenovation@gmail.com</a>
+  </div>
+
+  <!-- 1. HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="brand" aria-label="BCAA Rénovation — retour en haut">
+        <span class="brand__mark" aria-hidden="true">BCAA</span>
+        <span class="brand__text">
+          <span class="brand__name"><b>BCAA</b> <span>Rénovation</span></span>
+          <span class="brand__tag">Tous corps d'état</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="#metiers" data-spy>Nos métiers</a>
+        <a href="#realisations" data-spy>Réalisations</a>
+        <a href="#contact" data-spy>Nous contacter</a>
+        <a href="#contact" class="btn btn--marine btn--sm">Devis gratuit</a>
+      </nav>
+
+      <a href="#contact" class="btn btn--marine btn--sm header__cta">Devis gratuit</a>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 2. HERO -->
+    <section class="hero" id="accueil">
+      <div class="container hero__grid">
+        <div>
+          <p class="eyebrow reveal" style="--i:0">Rénovation tous corps d'état</p>
+          <h1 class="reveal" style="--i:1">
+            <span class="line">Un seul artisan.</span>
+            <span class="line"><span class="line--or">Tous vos travaux.</span></span>
+          </h1>
+          <p class="hero__sub reveal" style="--i:2">
+            Électricité, plomberie, climatisation, peinture, parquet, carrelage et aménagement.
+            BCAA Rénovation gère l'intégralité de votre chantier — du premier coup de marteau
+            à la remise des clés.
+          </p>
+          <div class="hero__ctas reveal" style="--i:3">
+            <a href="#contact" class="btn btn--marine">📧 Nous contacter</a>
+            <a href="#realisations" class="btn btn--outline">Voir nos réalisations</a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal" style="--i:2" aria-hidden="true">
+          <div class="hero__visual-logo">
+            <div>
+              <b>BCAA</b>
+              <span>RÉNOVATION</span>
+            </div>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat"><b>7</b><span>Corps de métier</span></div>
+            <div class="hero__stat"><b>675</b><span>Abonnés Instagram</span></div>
+            <div class="hero__stat"><b>19</b><span>Chantiers publiés</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reassurance">
+        <div class="container">
+          <ul aria-label="Nos prestations">
+            <li>⚡ Électricité certifiée</li>
+            <li>🔧 Plomberie</li>
+            <li>❄️ Climatisation</li>
+            <li>🎨 Peinture</li>
+            <li>🪵 Parquet</li>
+            <li>🚿 Salle de bain</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MÉTIERS -->
+    <section class="section section--ciment" id="metiers">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal" style="--i:0">Nos métiers</p>
+          <h2 class="reveal" style="--i:1">7 corps de métier. 1 seul interlocuteur.</h2>
+          <p class="sub reveal" style="--i:2">
+            Plus besoin de coordonner plusieurs artisans. BCAA Rénovation
+            prend en charge l'ensemble de votre projet.
+          </p>
+        </div>
+
+        <div class="metiers__grid">
+          <article class="metier reveal" style="--i:0">
+            <div class="metier__icon" aria-hidden="true">⚡</div>
+            <span class="metier__num">01</span>
+            <h3>Électricité</h3>
+            <p>Installation, mise aux normes, tableau électrique, prises et interrupteurs. Travail soigné et sécurisé.</p>
+          </article>
+          <article class="metier reveal" style="--i:1">
+            <div class="metier__icon" aria-hidden="true">🔧</div>
+            <span class="metier__num">02</span>
+            <h3>Plomberie</h3>
+            <p>Salle de bain, cuisine, remplacement de tuyauterie. Intervention rapide, matériaux certifiés.</p>
+          </article>
+          <article class="metier reveal" style="--i:2">
+            <div class="metier__icon" aria-hidden="true">❄️</div>
+            <span class="metier__num">03</span>
+            <h3>Climatisation</h3>
+            <p>Installation et entretien de systèmes split, gainable, multi-split. Confort toute l'année.</p>
+          </article>
+          <article class="metier reveal" style="--i:3">
+            <div class="metier__icon" aria-hidden="true">🎨</div>
+            <span class="metier__num">04</span>
+            <h3>Peinture</h3>
+            <p>Intérieure et extérieure. Préparation soignée, finitions impeccables, toutes surfaces.</p>
+          </article>
+          <article class="metier reveal" style="--i:4">
+            <div class="metier__icon" aria-hidden="true">🪵</div>
+            <span class="metier__num">05</span>
+            <h3>Parquet &amp; Carrelage</h3>
+            <p>Pose de parquet (massif, contrecollé, stratifié) et carrelage sol et mur.</p>
+          </article>
+          <article class="metier reveal" style="--i:5">
+            <div class="metier__icon" aria-hidden="true">🚿</div>
+            <span class="metier__num">06</span>
+            <h3>Aménagement</h3>
+            <p>Création et rénovation de salles de bain, cuisines, dressings, rangements sur mesure.</p>
+          </article>
+          <article class="metier reveal" style="--i:6">
+            <div class="metier__icon" aria-hidden="true">🏗️</div>
+            <span class="metier__num">07</span>
+            <h3>Travaux &amp; Rénovation</h3>
+            <p>Démolition, plâtrerie, isolation, cloisonnement. La structure avant les finitions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. AVANT / APRÈS -->
+    <section class="section section--marine ba" id="avant-apres">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal" style="--i:0">Nos réalisations</p>
+          <h2 class="reveal" style="--i:1">Avant · Après. Le travail parle.</h2>
+          <p class="sub reveal" style="--i:2">
+            Chaque chantier BCAA Rénovation est documenté. Retrouvez nos réalisations
+            sur Instagram <a href="https://www.instagram.com/bcaarenovation/" target="_blank" rel="noopener">@bcaarenovation</a>.
+          </p>
+        </div>
+
+        <div class="ba__wrap reveal" style="--i:1">
+          <div class="ba__grid">
+            <div class="ba__panel ba__panel--avant">
+              <span class="ba__label">AVANT</span>
+              <div class="ba__img" aria-label="Photo avant travaux (à remplacer)">
+                <span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+                  Photo avant
+                </span>
+              </div>
+              <div class="ba__overlay"></div>
+              <div class="ba__caption">
+                <b>Salle de bain — état initial</b>
+                <span>Carrelage daté, plomberie à reprendre, éclairage insuffisant.</span>
+              </div>
+            </div>
+            <div class="ba__panel ba__panel--apres">
+              <span class="ba__label">APRÈS</span>
+              <div class="ba__img" aria-label="Photo après travaux (à remplacer)">
+                <span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+                  Photo après
+                </span>
+              </div>
+              <div class="ba__overlay"></div>
+              <div class="ba__caption">
+                <b>Salle de bain — livrée</b>
+                <span>Douche italienne, faïence grand format, meuble suspendu, spots LED.</span>
+              </div>
+            </div>
+          </div>
+          <div class="ba__divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="ba__cta reveal" style="--i:2">
+          <a href="https://www.instagram.com/bcaarenovation/" target="_blank" rel="noopener" class="btn btn--outline-light">📸 Voir toutes nos réalisations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. GALERIE -->
+    <section class="section" id="realisations">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal" style="--i:0">Galerie</p>
+          <h2 class="reveal" style="--i:1">Nos chantiers récents.</h2>
+          <p class="sub reveal" style="--i:2">
+            Un aperçu de nos interventions. Chaque photo est un chantier réel,
+            livré à un client satisfait.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <div class="item reveal" style="--i:0">
+            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <span class="item__tag">Rénovation salle de bain</span>
+          </div>
+          <div class="item reveal" style="--i:1">
+            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <span class="item__tag">Pose parquet</span>
+          </div>
+          <div class="item reveal" style="--i:2">
+            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <span class="item__tag">Installation électrique</span>
+          </div>
+          <div class="item reveal" style="--i:3">
+            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <span class="item__tag">Peinture intérieure</span>
+          </div>
+          <div class="item reveal" style="--i:4">
+            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <span class="item__tag">Climatisation</span>
+          </div>
+        </div>
+
+        <p class="gallery__note reveal" style="--i:1">
+          Plus de photos avant/après sur
+          <a href="https://www.instagram.com/bcaarenovation/" target="_blank" rel="noopener">Instagram @bcaarenovation</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. POURQUOI BCAA -->
+    <section class="section section--ciment" id="pourquoi">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal" style="--i:0">Nos engagements</p>
+          <h2 class="reveal" style="--i:1">Pourquoi choisir BCAA Rénovation ?</h2>
+        </div>
+
+        <div class="why__grid">
+          <article class="why reveal" style="--i:0">
+            <div class="why__icon" aria-hidden="true">📋</div>
+            <h3>Devis détaillé</h3>
+            <p>Transparence totale sur les prestations et les tarifs avant le début des travaux.</p>
+          </article>
+          <article class="why reveal" style="--i:1">
+            <div class="why__icon" aria-hidden="true">✅</div>
+            <h3>Travail garanti</h3>
+            <p>Chaque intervention est réalisée avec soin et dans les règles de l'art.</p>
+          </article>
+          <article class="why reveal" style="--i:2">
+            <div class="why__icon" aria-hidden="true">📱</div>
+            <h3>Disponible &amp; réactif</h3>
+            <p>Contactez-nous par email ou Instagram. Réponse rapide garantie.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CONTACT -->
+    <section class="section section--ardoise" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal" style="--i:0">Contact</p>
+          <h2 class="reveal" style="--i:1">Démarrez votre projet.</h2>
+          <p class="sub reveal" style="--i:2">
+            Décrivez-nous vos travaux : nous revenons vers vous rapidement avec un devis détaillé et gratuit.
+          </p>
+        </div>
+
+        <div class="contact__grid">
+          <aside class="contact-card reveal" style="--i:1">
+            <h3>Parlons de vos travaux</h3>
+            <p>Un seul interlocuteur pour toute votre rénovation.</p>
+            <ul>
+              <li>
+                <a href="mailto:bcaarenovation@gmail.com">
+                  <span class="ico" aria-hidden="true">📧</span>
+                  <span><span class="k">Email</span><span class="v">bcaarenovation@gmail.com</span></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/bcaarenovation/" target="_blank" rel="noopener">
+                  <span class="ico" aria-hidden="true">📸</span>
+                  <span><span class="k">Instagram</span><span class="v">@bcaarenovation</span></span>
+                </a>
+              </li>
+              <li>
+                <div class="row">
+                  <span class="ico" aria-hidden="true">🚐</span>
+                  <span><span class="k">Déplacement</span><span class="v">Déplacement selon zone (à préciser)</span></span>
+                </div>
+              </li>
+            </ul>
+            <p class="hours">Devis gratuit et sans engagement. Réponse sous 48h ouvrées.</p>
+          </aside>
+
+          <form class="form reveal" id="devis-form" style="--i:2" novalidate>
+            <div class="form__row">
+              <div class="field">
+                <label for="nom">Nom <span class="req">*</span></label>
+                <input type="text" id="nom" name="nom" autocomplete="family-name" placeholder="Dupont" required>
+              </div>
+              <div class="field">
+                <label for="prenom">Prénom <span class="req">*</span></label>
+                <input type="text" id="prenom" name="prenom" autocomplete="given-name" placeholder="Marie" required>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="tel">Téléphone <span class="req">*</span></label>
+                <input type="tel" id="tel" name="telephone" autocomplete="tel" placeholder="06 00 00 00 00" required>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="marie@exemple.fr" required>
+              </div>
+            </div>
+            <div class="form__row form__row--single">
+              <div class="field">
+                <label for="type">Type de travaux <span class="req">*</span></label>
+                <select id="type" name="type_travaux" required>
+                  <option value="" disabled selected>Sélectionnez une prestation</option>
+                  <option>Électricité</option>
+                  <option>Plomberie</option>
+                  <option>Climatisation</option>
+                  <option>Peinture</option>
+                  <option>Parquet &amp; Carrelage</option>
+                  <option>Aménagement</option>
+                  <option>Rénovation complète</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="ville">Ville <span class="req">*</span></label>
+                <input type="text" id="ville" name="ville" autocomplete="address-level2" placeholder="Votre ville" required>
+              </div>
+              <div class="field">
+                <label for="cp">Code postal <span class="req">*</span></label>
+                <input type="text" id="cp" name="code_postal" inputmode="numeric" pattern="[0-9]{5}" autocomplete="postal-code" placeholder="75000" required>
+              </div>
+            </div>
+            <div class="form__row form__row--single">
+              <div class="field">
+                <label for="desc">Description du projet <span class="req">*</span></label>
+                <textarea id="desc" name="description" placeholder="Décrivez vos travaux : surface, pièces concernées, délais souhaités…" required></textarea>
+              </div>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="site_web">Ne pas remplir</label>
+              <input type="text" id="site_web" name="site_web" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="form__footer">
+              <p class="form__legal">Vos données sont utilisées uniquement pour répondre à votre demande de devis.</p>
+              <button type="submit" class="btn btn--or">Envoyer la demande</button>
+            </div>
+            <div class="form__status" id="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 8. FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="brand">
+            <span class="brand__mark" aria-hidden="true">BCAA</span>
+            <span class="brand__text">
+              <span class="brand__name"><b>BCAA</b> <span>Rénovation</span></span>
+            </span>
+          </div>
+          <p>Tous corps d'état · Électricité · Plomberie · Climatisation · Peinture · Parquet · Aménagement</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#metiers">Nos métiers</a></li>
+            <li><a href="#avant-apres">Avant / Après</a></li>
+            <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#pourquoi">Pourquoi BCAA</a></li>
+            <li><a href="#contact">Nous contacter</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:bcaarenovation@gmail.com">📧 bcaarenovation@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/bcaarenovation/" target="_blank" rel="noopener">📸 @bcaarenovation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 BCAA Rénovation — Tous droits réservés</span>
+        <span>Site réalisé par <a href="https://paymentflow.fr" target="_blank" rel="noopener">Payment Flow</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" aria-label="Retour en haut">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    'use strict';
+
+    (function () {
+      var header = document.getElementById('header');
+      var nav = document.getElementById('nav');
+      var burger = document.getElementById('burger');
+      var toTop = document.getElementById('to-top');
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ---------- Header au scroll + bouton retour haut ---------- */
+      var ticking = false;
+      function onScroll() {
+        var y = window.scrollY || window.pageYOffset;
+        header.classList.toggle('is-scrolled', y > 12);
+        toTop.classList.toggle('is-visible', y > 600);
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+      }, { passive: true });
+      onScroll();
+
+      toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+
+      /* ---------- Menu mobile ---------- */
+      function closeNav() {
+        nav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Ouvrir le menu');
+      }
+      burger.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      });
+      nav.addEventListener('click', function (e) {
+        if (e.target.closest('a')) closeNav();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeNav();
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) closeNav();
+      });
+
+      /* ---------- Smooth scroll (fallback + offset header) ---------- */
+      var offset = function () {
+        var styles = getComputedStyle(document.documentElement);
+        return parseInt(styles.getPropertyValue('--bandeau-h'), 10) + parseInt(styles.getPropertyValue('--header-h'), 10);
+      };
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var id = link.getAttribute('href');
+          if (id.length < 2) return;
+          var target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          var top = target.getBoundingClientRect().top + window.scrollY - offset();
+          if (id === '#top') top = 0;
+          window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
+          if (history.pushState) history.pushState(null, '', id);
+        });
+      });
+
+      /* ---------- Scrollspy ---------- */
+      var spyLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a[data-spy]'));
+      var spySections = spyLinks.map(function (a) {
+        return document.querySelector(a.getAttribute('href'));
+      }).filter(Boolean);
+
+      function setActive(id) {
+        spyLinks.forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+        });
+      }
+
+      if ('IntersectionObserver' in window && spySections.length) {
+        var spyObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+        spySections.forEach(function (s) { spyObserver.observe(s); });
+      }
+
+      /* ---------- Scroll reveal ---------- */
+      var reveals = document.querySelectorAll('.reveal');
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+      } else {
+        var revealObserver = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+        reveals.forEach(function (el) { revealObserver.observe(el); });
+      }
+
+      /* ---------- Formulaire ---------- */
+      var form = document.getElementById('devis-form');
+      var status = document.getElementById('form-status');
+
+      function showStatus(msg, isError) {
+        status.textContent = msg;
+        status.classList.add('is-visible');
+        status.classList.toggle('is-error', !!isError);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        /* Honeypot anti-spam */
+        if (form.site_web.value) return;
+
+        if (!form.checkValidity()) {
+          var firstInvalid = form.querySelector(':invalid');
+          if (firstInvalid) firstInvalid.focus();
+          showStatus('Merci de compléter tous les champs obligatoires (*).', true);
+          return;
+        }
+
+        /* Sans backend : ouverture du client mail avec la demande pré-remplie.
+           À remplacer par Web3Forms / Formspree — voir notes client. */
+        var data = new FormData(form);
+        var subject = 'Demande de devis — ' + data.get('type_travaux') + ' — ' + data.get('prenom') + ' ' + data.get('nom');
+        var body = [
+          'Nom : ' + data.get('nom'),
+          'Prénom : ' + data.get('prenom'),
+          'Téléphone : ' + data.get('telephone'),
+          'Email : ' + data.get('email'),
+          'Type de travaux : ' + data.get('type_travaux'),
+          'Ville : ' + data.get('ville') + ' (' + data.get('code_postal') + ')',
+          '',
+          'Description du projet :',
+          data.get('description')
+        ].join('\n');
+
+        window.location.href = 'mailto:bcaarenovation@gmail.com'
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(body);
+
+        showStatus('Votre messagerie s\'ouvre avec la demande pré-remplie. Nous vous répondons rapidement.');
+      });
+
+      /* Cache l'état d'erreur dès que l'utilisateur corrige */
+      form.addEventListener('input', function () {
+        if (status.classList.contains('is-error') && form.checkValidity()) {
+          status.classList.remove('is-visible', 'is-error');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
