@@ -519,14 +519,14 @@
       letter-spacing: 0.14em;
       font-weight: 500;
     }
-    .ba__img::before {
-      /* placeholder textural : rayures chantier */
-      content: '';
+    .ba__img img, .gallery .item img {
       position: absolute; inset: 0;
-      background: repeating-linear-gradient(135deg, rgba(248,248,246,.03) 0 12px, transparent 12px 24px);
+      width: 100%; height: 100%;
+      object-fit: cover;
     }
-    .ba__img span { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-    .ba__img svg { width: 42px; height: 42px; stroke: currentColor; fill: none; stroke-width: 1.4; opacity: .8; }
+    .ba__img img { transition: transform .8s var(--ease); }
+    .ba__panel:hover .ba__img img { transform: scale(1.03); }
+    .ba__panel--avant .ba__img img { filter: grayscale(.35) contrast(.95); }
     .ba__overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(26,39,68,.85) 0%, rgba(26,39,68,.15) 45%, transparent 100%);
@@ -586,21 +586,16 @@
       cursor: default;
     }
     .gallery .item:first-child { grid-row: 1 / 3; }
-    .gallery .item::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: var(--motif);
-      background-size: 40px 40px;
-      opacity: 1;
-      transition: opacity .3s;
-    }
+    .gallery .item img { transition: transform .8s var(--ease); }
+    .gallery .item:hover img { transform: scale(1.05); }
     .gallery .item::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(26,39,68,.0) 0%, transparent 60%);
-      transition: background .35s var(--ease);
+      background: linear-gradient(to top, rgba(26,39,68,.45) 0%, transparent 55%);
+      transition: opacity .35s var(--ease);
+      opacity: .8;
     }
-    .gallery .item:hover::after { background: linear-gradient(to top, rgba(26,39,68,.12) 0%, transparent 60%); }
+    .gallery .item:hover::after { opacity: 1; }
     .gallery .item__tag {
       position: relative;
       z-index: 1;
@@ -616,16 +611,6 @@
       transition: color .25s, border-color .25s;
     }
     .gallery .item:hover .item__tag { color: var(--marine); border-left-color: var(--or); }
-    .gallery .item__ico {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 40px; height: 40px;
-      stroke: var(--acier);
-      fill: none;
-      stroke-width: 1.4;
-      opacity: .45;
-    }
     .gallery__note {
       margin-top: 20px;
       font-size: 14px;
@@ -1121,30 +1106,20 @@
           <div class="ba__grid">
             <div class="ba__panel ba__panel--avant">
               <span class="ba__label">AVANT</span>
-              <div class="ba__img" aria-label="Photo avant travaux (à remplacer)">
-                <span>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
-                  Photo avant
-                </span>
-              </div>
+              <div class="ba__img"><img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=75&w=900" srcset="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=75&w=450 450w, https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=75&w=900 900w, https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=75&w=1800 1800w" sizes="(max-width: 768px) 100vw, 50vw" alt="Chantier avant travaux : sol décapé et perceuse posée au milieu des gravats" loading="lazy" decoding="async"></div>
               <div class="ba__overlay"></div>
               <div class="ba__caption">
-                <b>Salle de bain — état initial</b>
-                <span>Carrelage daté, plomberie à reprendre, éclairage insuffisant.</span>
+                <b>État initial — dépose</b>
+                <span>Revêtements retirés, supports mis à nu, réseaux à reprendre.</span>
               </div>
             </div>
             <div class="ba__panel ba__panel--apres">
               <span class="ba__label">APRÈS</span>
-              <div class="ba__img" aria-label="Photo après travaux (à remplacer)">
-                <span>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
-                  Photo après
-                </span>
-              </div>
+              <div class="ba__img"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=75&w=900" srcset="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=75&w=450 450w, https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=75&w=900 900w, https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=75&w=1800 1800w" sizes="(max-width: 768px) 100vw, 50vw" alt="Salle de bain rénovée : douche vitrée, double vasque et grand miroir" loading="lazy" decoding="async"></div>
               <div class="ba__overlay"></div>
               <div class="ba__caption">
                 <b>Salle de bain — livrée</b>
-                <span>Douche italienne, faïence grand format, meuble suspendu, spots LED.</span>
+                <span>Douche vitrée, double vasque, faïence blanche, finitions soignées.</span>
               </div>
             </div>
           </div>
@@ -1171,23 +1146,23 @@
 
         <div class="gallery">
           <div class="item reveal" style="--i:0">
-            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&q=75&w=1000" srcset="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&q=75&w=500 500w, https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&q=75&w=1000 1000w, https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&q=75&w=2000 2000w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" alt="Salle de bain rénovée avec baignoire îlot et vasque posée" loading="lazy" decoding="async">
             <span class="item__tag">Rénovation salle de bain</span>
           </div>
           <div class="item reveal" style="--i:1">
-            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&q=75&w=600" srcset="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&q=75&w=300 300w, https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&q=75&w=600 600w, https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&q=75&w=1200 1200w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" alt="Pièce lumineuse avec parquet chêne neuf" loading="lazy" decoding="async">
             <span class="item__tag">Pose parquet</span>
           </div>
           <div class="item reveal" style="--i:2">
-            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=75&w=600" srcset="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=75&w=300 300w, https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=75&w=600 600w, https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=75&w=1200 1200w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" alt="Électricien en casque intervenant sur un compteur électrique" loading="lazy" decoding="async">
             <span class="item__tag">Installation électrique</span>
           </div>
           <div class="item reveal" style="--i:3">
-            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=75&w=600" srcset="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=75&w=300 300w, https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=75&w=600 600w, https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=75&w=1200 1200w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" alt="Rouleau appliquant une peinture bleue sur un mur blanc" loading="lazy" decoding="async">
             <span class="item__tag">Peinture intérieure</span>
           </div>
           <div class="item reveal" style="--i:4">
-            <svg class="item__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg>
+            <img src="https://images.unsplash.com/photo-1718203862467-c33159fdc504?auto=format&fit=crop&q=75&w=600" srcset="https://images.unsplash.com/photo-1718203862467-c33159fdc504?auto=format&fit=crop&q=75&w=300 300w, https://images.unsplash.com/photo-1718203862467-c33159fdc504?auto=format&fit=crop&q=75&w=600 600w, https://images.unsplash.com/photo-1718203862467-c33159fdc504?auto=format&fit=crop&q=75&w=1200 1200w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" alt="Unité extérieure de climatisation neuve fixée contre une façade" loading="lazy" decoding="async">
             <span class="item__tag">Climatisation</span>
           </div>
         </div>
